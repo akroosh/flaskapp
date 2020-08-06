@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ movie.title }}
+
+{% endblock %}
+
+
+{% block body %}
+
+
+
+<div class="movie__container">
+
+    <img class="movie-img" src="{{movie.image}}" alt="">
+    <button class="m-watch-btn"><img src="img/pause.png" alt=""><span class="text">watch</span></button>
+    <!--copy img and do normal path to it pls-->
+    <section class="movie__data">
+        <div class="movie-left"><img src="img/james-bond2.jpg" alt=""></div><!-- movie.poster has to be here-->
+        <div class="movie-center">
+            <div class="m-title"><span>{{movie.title}}</span></div>
+            <div class="m-tagline"><span>{{movie.tagline}}</span></div>
+            <div class="m-genres"><span>
+                    {%for genre in movie.genres%}
+
+                    <a href="{{ url_for('movies.genre_detail', slug = genre.slug)}}">{{genre.title}}</a>,
+
+                    {%endfor%}</span></div>
+            <div class="m-description"><span>{{movie.description}}</span></div>
+
+        </div>
+    </section>
+    <div class="movie-cast">
+
+        <img src="https://vokrug-tv.ru/pic/person/5/6/9/4/56945e51d1674d9e38a961a777d95bb3.jpg" alt="Rami Malek">
+
+        <img src="https://www.gstatic.com/tv/thumb/persons/540190/540190_v9_bb.jpg" alt="Lea Seydoux">
+
+        <img src="https://www.gstatic.com/tv/thumb/persons/669726/669726_v9_ba.jpg" alt="Lashana Lynch">
+
+        <img src="https://ticketon.kz/files/media/ana-dearmas.jpg?w=230" alt="Ana Celia de Armas Caso">
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}

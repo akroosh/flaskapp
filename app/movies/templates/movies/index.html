@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+
+
+{% block body %}
+    {% for movie in pages.items %}
+        <div class="movies">
+            <div class="movie__content">
+                <div class="containerr">
+                    <div class="filmplace">
+                        <div class="imgss">
+                            <p><img class="film-img" src="{{movie.image}}" alt="">
+                            <div class="film__title"><a href="{{ url_for('movies.movie_detail', slug = movie.slug)}}" class = "title__href">{{ movie.title }}</a></div>
+                        </div>
+                        <div class="genre"><span>
+                            {%for genre in movie.genres%}
+                            
+                                <a href="genre/{{genre.slug}}">{{genre.title}}</a>,
+                                
+                                {%endfor%}</span>
+                        </div>
+                        <div class="film__text"><span>
+                            {{movie.description}}</span>
+                        </div>
+                        
+                        <div>Year: <span>{{movie.year}}</span></div>
+                        <div>Country: <span>{{movie.country}}</span></div>
+    
+                        <a href="{{movie.slug}}" class="button-container">Watch it now</a>
+                        <a href="{{movie.slug}}/edit" class="m-edit">edit</a>
+                        <a href="{{movie.slug}}/delete"class="m-delete" onclick="Delete(this)">delete</a>
+                        <a href="{{movie.slug}}/upload"class="m-upload">upload</a>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <nav>
+        <ul>
+            <li><a href="./?page={{pages.prev_num}}">&laquo;</a></li>
+            {% for page in pages.iter_pages() %}
+            <li><a href="./?page={{page}}">{{ page }}</a></li>
+            {% endfor %}
+            <li><a href="./?page={{pages.next_num}}">&raquo;</a></li>
+        </ul>
+    </nav>
+{% endblock %}
