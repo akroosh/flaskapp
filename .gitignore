@@ -1,5 +1,5 @@
 .DS_Store
 *.pyc
-/app/pycache
+/app/__pycache__
 /app/migrations
 env
