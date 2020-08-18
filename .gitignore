@@ -1,1 +1,4 @@
 .DS_Store
+*.pyc
+/app/pycache
+/app/migrations
