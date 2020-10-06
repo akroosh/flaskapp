@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Movies for "{{genre.title}}" genre:
+{% endblock %}
+
+{% block body %}
+    {% for movie in movies %}
+        <div>
+            <a href="{{ url_for('movies.movie_detail', slug = movie.slug)}}">{{ movie.title }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

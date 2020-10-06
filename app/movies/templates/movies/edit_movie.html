@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %}
+    Edit movie
+{% endblock %}
+{%block body%}
+
+Редагувати пост
+<form action="{{url_for('movies.edit_movie', slug=movie.slug)}}" method="post">
+    {%for field in form%}
+    <div>
+        {{field.label()}}
+        {{field()}}
+    </div>
+    {%endfor%}
+    
+    <button type="submit" id="btn-edit" onclick="Edit(this)">Редагувати</button>
+</form>
+
+
+
+
+{%endblock%}
+
+{%block scripts%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../../../static/js/jquery.fancybox.min.js"></script>
+<script src="../../../static/js/slick.min.js"></script>
+<script src="../../../static/js/main.js"></script>
+<script src="../../../static/js/edit.js"></script>
+{%endblock%}
