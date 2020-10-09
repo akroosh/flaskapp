@@ -1,5 +1,0 @@
-.DS_Store
-*.pyc
-/backend/app/__pycache__
-/backend/app/migrations
-env
